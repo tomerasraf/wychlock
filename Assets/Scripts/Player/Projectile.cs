@@ -8,26 +8,39 @@ public class Projectile : MonoBehaviour
 {
     private float speed;
     private Vector2 direction;
-    private float damage = 20;
+    private int damage = 20;
     private float lifeTime = 2f;
 
-    public void Init(float speed, Vector2 direction, float damage, float lifeTime)
+    private float lifeTimer = 0;
+
+    public void Init(float speed, Vector2 direction, int damage, float lifeTime)
     {
         this.speed = speed;
         this.direction = direction;
         this.damage = damage;
         this.lifeTime = lifeTime;
     }
-
+    private void OnEnable()
+    {
+        lifeTimer = 0;
+    }
     private void Update()
     {
-        transform.position += speed * Time.deltaTime * (Vector3)direction;
+        lifeTimer += Time.deltaTime;
+        if (lifeTimer < lifeTime)
+        {
+           transform.position += speed * Time.deltaTime * (Vector3)direction;
+           return;
+        }
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<Health>() != null)
+        other.TryGetComponent<Health>(out Health health);
+        if (health != null)
         {
+            health.Damage(damage);
             Destroy(gameObject);
         }
     }
