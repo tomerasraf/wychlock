@@ -9,21 +9,6 @@ public enum WeaponTypes
     Sniper,
     GrenadeLauncher
 }
-[CreateAssetMenu(fileName = "NewWeapon", menuName = "Weapons")]
-public class WeaponType : ScriptableObject
-{
-    public WeaponTypes weaponType;
-    [Tooltip("Time between Shots")]
-    public float fireRate;
-    public int bulletPerShot;
-    public float spreadDeegres;
-    public float recoilForce;
-    public GameObject bulletPrefab;
-    public float bulletSpeed;
-    public int bulletDamage;
-    public float lifeSpan;
-
-}
 public class Weapon : MonoBehaviour
 {
     [SerializeField] WeaponType weaponType;
@@ -38,6 +23,7 @@ public class Weapon : MonoBehaviour
     }
     public void Shoot()
     {
+
         if (!canShoot)
         {
             return;
@@ -50,11 +36,12 @@ public class Weapon : MonoBehaviour
         Quaternion randomSpree = Quaternion.Euler(0,0,randomAngle);
         Vector2 direction = randomSpree * (Vector3)barrelDirection;
 
+
         for (int i = 0; i < weaponType.bulletPerShot; i++)
         {
-            print(bulletSpawnPoint.position);
             GameObject bulletObj = Instantiate(weaponType.bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
             Projectile bullet = bulletObj.GetComponent<Projectile>();
+            Vector2 direction = RandomSpreadOffset(barrelDirection);
             bullet.Init(weaponType.bulletSpeed, direction, weaponType.bulletDamage, weaponType.lifeSpan);
         }
 
@@ -65,6 +52,16 @@ public class Weapon : MonoBehaviour
         StartCoroutine(FireRatePause());
 
     }
+
+    private Vector2 RandomSpreadOffset(Vector2 barrelDirection)
+    {
+        float halfCone = weaponType.spreadDeegres / 2;
+        float randomAngle = Random.Range(-halfCone, halfCone);
+        Quaternion randomSpree = Quaternion.Euler(0, 0, randomAngle);
+        Vector2 direction = randomSpree * (Vector3)barrelDirection;
+        return direction;
+    }
+
     private IEnumerator FireRatePause()
     {
         yield return new WaitForSeconds(weaponType.fireRate);

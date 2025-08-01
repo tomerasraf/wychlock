@@ -38,9 +38,7 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Health health = other.GetComponent<Health>();
-        
-        print(health);
-        
+                
         if (health != null)
         {
             health.Damage(damage);
