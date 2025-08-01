@@ -23,8 +23,12 @@ public class WeaponType : ScriptableObject
 }
 public class Weapon : MonoBehaviour
 {
+    public WeaponType weaponType;
     public void Shoot()
     {
+        GameObject bulletObj = Instantiate(weaponType.bulletPrefab);
+        Bullet bullet = bulletObj.GetComponent<Bullet>();
+        bullet.
     }
 
 }
