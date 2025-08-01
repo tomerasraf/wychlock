@@ -18,7 +18,12 @@ public class Projectile : MonoBehaviour
         this.damage = damage;
         this.lifeTime = lifeTime;
     }
-    
+
+    private void Update()
+    {
+        transform.Translate(direction * speed * Time.deltaTime, Space.World);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<Health>() != null)

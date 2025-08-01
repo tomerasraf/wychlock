@@ -24,8 +24,8 @@ public class WeaponType : ScriptableObject
 }
 public class Weapon : MonoBehaviour
 {
-    public WeaponType weaponType;
-    private Movment movement;
+    [SerializeField] WeaponType weaponType;
+    [SerializeField] Movment movement;
     private void Start()
     {
         movement = GetComponent<Movment>();

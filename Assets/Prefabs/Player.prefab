@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5304288061655277726}
   - component: {fileID: 8855580764824619786}
-  - component: {fileID: 6422650862679839981}
   m_Layer: 0
   m_Name: weapon
   m_TagString: Untagged
@@ -85,18 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6422650862679839981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4541910518075049155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fcc619ae90f4484fb9cae8afd9fd79a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6986197826302901626
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +180,7 @@ GameObject:
   - component: {fileID: 2751956581928415544}
   - component: {fileID: 5778709474162220690}
   - component: {fileID: 8845478231685079047}
-  - component: {fileID: 2046165917209590858}
+  - component: {fileID: 4607175501718839581}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -257,7 +244,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.5154859, g: 0.89351547, b: 0.9056604, a: 1}
   m_FlipX: 0
@@ -283,7 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   body: {fileID: 8859177874538203640}
---- !u!114 &2046165917209590858
+--- !u!114 &4607175501718839581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,6 +279,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7804590662316913545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3631eba526cbd0b489b43a620cc0cc1c, type: 3}
+  m_Script: {fileID: 11500000, guid: cad8013e6b26bcc41aa897f2f64491a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHp: 100
