@@ -529,36 +529,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1128746385 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7804590662316913545, guid: 06783b787112c1e4182df147374b2f93, type: 3}
-  m_PrefabInstance: {fileID: 2106815534723789097}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1128746391 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8845478231685079047, guid: 06783b787112c1e4182df147374b2f93, type: 3}
-  m_PrefabInstance: {fileID: 2106815534723789097}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1128746385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a735f936c1ec4f34880a0c3e1947cd46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1128746394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1128746385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fcc619ae90f4484fb9cae8afd9fd79a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponType: {fileID: 11400000, guid: 02f9e34ee774b0449be16d7e5d9d0040, type: 2}
-  movement: {fileID: 1128746391}
 --- !u!1 &1875992807
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,10 +670,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7804590662316913545, guid: 06783b787112c1e4182df147374b2f93, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1128746394}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06783b787112c1e4182df147374b2f93, type: 3}
 --- !u!1001 &6680515045496560387
 PrefabInstance:

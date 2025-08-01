@@ -26,6 +26,7 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] WeaponType weaponType;
     [SerializeField] Movment movement;
+    [SerializeField] Transform bulletSpawnPoint;
     private void Start()
     {
         movement = GetComponent<Movment>();
@@ -41,15 +42,18 @@ public class Weapon : MonoBehaviour
     public void Shoot()
     {
         Vector2 direction = movement.GetBulletDirection();
-
+        GameObject bulletObj = Instantiate(weaponType.bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+        Projectile bullet = bulletObj.GetComponent<Projectile>();
+        bullet.Init(weaponType.bulletSpeed, direction, weaponType.bulletDamage, weaponType.lifeSpan);
+        
         //float halfSpread = weaponType.spreadDegres / 2;
 
-        for (int i = 0; i < weaponType.bulletPerShot; i++) 
+        /*for (int i = 0; i < weaponType.bulletPerShot; i++) 
         {
-            GameObject bulletObj = Instantiate(weaponType.bulletPrefab);
+            GameObject bulletObj = Instantiate(weaponType.bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
             Projectile bullet = bulletObj.GetComponent<Projectile>();
             bullet.Init(weaponType.bulletSpeed, direction, weaponType.bulletDamage, weaponType.lifeSpan);
-        }
+        }*/
         
     }
 
