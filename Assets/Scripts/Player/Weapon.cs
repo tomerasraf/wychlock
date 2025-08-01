@@ -36,17 +36,13 @@ public class Weapon : MonoBehaviour
         movement = GetComponent<Movment>();
         canShoot = true;
     }
-
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0)
-            && canShoot)
-        {
-            Shoot();
-        }
-    }
     public void Shoot()
     {
+        if (!canShoot)
+        {
+            return;
+        }
+        
         Vector2 barrelDirection= movement.GetBarrelDirection();
 
         float halfCone = weaponType.spreadDeegres / 2;

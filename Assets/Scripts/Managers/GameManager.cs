@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private List<PlayerInputFrame> recordedFrames = new List<PlayerInputFrame>();
     public static GameManager Instance;
 
     void Awake()
@@ -17,7 +18,15 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
        }
-    
-    
+
+    public void setRecordedFrames(List<PlayerInputFrame> recordedFrames)
+    {
+        this.recordedFrames = recordedFrames;
+    }
+
+    public List<PlayerInputFrame> getRecordedFrames()
+    {
+        return recordedFrames;
+    }
     
 }

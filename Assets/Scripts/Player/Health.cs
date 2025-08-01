@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +9,9 @@ public class Health : MonoBehaviour
 {
     public int hp {get; private set;}
     [SerializeField] int maxHp;
-    public static Action playerDeath;
+    public static Action<bool> playerDeath;
     public Slider healthSlider;
+    private bool isPlayer = true;
 
     private void Start()
     {
@@ -37,11 +39,26 @@ public class Health : MonoBehaviour
     }
     private void KillPlayer()
     {
-        playerDeath.Invoke();
+        if (gameObject.CompareTag("Enemy"))
+        {
+            isPlayer = false;
+        }
+        else
+        {
+            isPlayer = true;
+        }
+
+        playerDeath.Invoke(isPlayer);
     }
 
     private void Update()
     {
         healthSlider.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
+    }
+
+    void OnDisable()
+    {
+        gameObject.SetActive(true);
+        transform.position = new Vector3(0,0,0);
     }
 }

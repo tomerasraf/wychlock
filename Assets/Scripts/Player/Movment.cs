@@ -16,9 +16,7 @@ public class Movment : MonoBehaviour
     {
         transform.Translate(inputDirection * speed * Time.deltaTime);
     }
-
-   
-
+    
     public void RotateToMousePos(Vector3 mousePos)
     {
 
