@@ -13,9 +13,9 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        //healthSlider.maxValue = maxHp;
-        //healthSlider.value = hp;
         Heal(maxHp);
+        healthSlider.maxValue = maxHp;
+        healthSlider.value = hp;
     }
     public void Damage(int damage)
     {
@@ -38,5 +38,10 @@ public class Health : MonoBehaviour
     private void KillPlayer()
     {
         playerDeath.Invoke();
+    }
+
+    private void Update()
+    {
+        healthSlider.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
     }
 }
