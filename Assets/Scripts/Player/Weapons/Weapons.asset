@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Weapons
   m_EditorClassIdentifier: Assembly-CSharp::WeaponType
   weaponType: 0
+  fireRate: 0
   bulletPerShot: 1
-  spreadDegres: 0
+  spreadDeegres: 0
   recoilForce: 0
   bulletPrefab: {fileID: 3991459269449835618, guid: 232378ea131284a47bd91f0a9b0e7db9, type: 3}
   bulletSpeed: 10
   bulletDamage: 30
-  lifeSpan: 0
+  lifeSpan: 10
