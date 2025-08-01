@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
     public int hp {get; private set;}
     [SerializeField] int maxHp;
     public static Action playerDeath;
-    //public Slider healthSlider;
+    public Slider healthSlider;
 
     private void Start()
     {
