@@ -13,22 +13,36 @@ public enum WeaponTypes
 public class WeaponType : ScriptableObject
 {
     public WeaponTypes weaponType;
-    public GameObject bulletPrefab;
     public int bulletPerShot;
-    public int bulletDamage;
     public float spreadDegres;
-    public float lifeSpan;
     public float recoilForce;
+    public GameObject bulletPrefab;
+    public float bulletSpeed;
+    public int bulletDamage;
+    public float lifeSpan;
 
 }
 public class Weapon : MonoBehaviour
 {
     public WeaponType weaponType;
+    private Movment movement;
+    private void Start()
+    {
+        
+    }
     public void Shoot()
     {
-        GameObject bulletObj = Instantiate(weaponType.bulletPrefab);
-        Bullet bullet = bulletObj.GetComponent<Bullet>();
-        bullet.
+        Vector2 direction = Vector2.up; 
+
+        //float halfSpread = weaponType.spreadDegres / 2;
+        
+        for (int i = 0; i < weaponType.bulletPerShot; i++) 
+        {
+            GameObject bulletObj = Instantiate(weaponType.bulletPrefab);
+            Projectile bullet = bulletObj.GetComponent<Projectile>();
+            bullet.Init(weaponType.bulletSpeed, direction, weaponType.bulletDamage, weaponType.lifeSpan);
+        }
+        
     }
 
 }
