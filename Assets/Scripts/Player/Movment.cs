@@ -6,16 +6,38 @@ using UnityEngine;
 public class Movment : MonoBehaviour
 {
     [SerializeField] private float speed = 3.0f;
-    private Vector2 direction = Vector2.zero;
+    [SerializeField] private Transform body;
+    private Vector2 rotationDir = Vector2.zero;
+    private Vector2 inputDirection = Vector2.zero;
 
 
-    private void Update()
+    void playerMovement()
     {
         float xAxis = Input.GetAxis("Horizontal");
         float yAxis = Input.GetAxis("Vertical");
         
-        direction = new Vector2(xAxis, yAxis).normalized;
+        inputDirection = new Vector2(xAxis, yAxis).normalized;
         
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(inputDirection * speed * Time.deltaTime);
+    }
+
+    void PlayerRotation()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f;
+        
+        Vector2 direction = (mousePos - transform.position).normalized;
+       
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+       
+        body.rotation = Quaternion.Euler(0f, 0f, angle + 180);
+    }
+
+
+
+    private void Update()
+    {
+        playerMovement();
+        PlayerRotation();
     }
 }
