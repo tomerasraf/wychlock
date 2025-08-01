@@ -22,6 +22,7 @@ public class PlayerInput : MonoBehaviour
     private void Start()
     {
         movement = GetComponent<Movment>();
+        weapon = GetComponent<Weapon>();
         Health.playerDeath += decideRecording;
     }
     private void Update()
@@ -32,7 +33,7 @@ public class PlayerInput : MonoBehaviour
         {
             weapon.Shoot();
         }
-        RecordFrames();
+        //RecordFrames();
     }
 
     void RecordFrames()
@@ -61,7 +62,7 @@ public class PlayerInput : MonoBehaviour
     }
 
     void decideRecording(bool isPlayer)
-    {
+    { 
         if (isPlayer)
         {
             recordedFrames.Clear();
