@@ -7,7 +7,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     private float speed;
-    private Vector2 direction = Vector2.zero;
+    private Vector2 direction;
     private float damage = 20;
     private float lifeTime = 2f;
 
@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(direction * speed * Time.deltaTime, Space.World);
+        transform.position += speed * Time.deltaTime * (Vector3)direction;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
