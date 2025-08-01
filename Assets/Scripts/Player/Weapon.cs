@@ -19,7 +19,7 @@ public class WeaponType : ScriptableObject
     public float spreadDegres;
     public float lifeSpan;
     public float recoilForce;
-    
+
 }
 public class Weapon : MonoBehaviour
 {
