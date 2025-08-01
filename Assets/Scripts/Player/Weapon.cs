@@ -28,14 +28,14 @@ public class Weapon : MonoBehaviour
     private Movment movement;
     private void Start()
     {
-        
+        movement = GetComponent<Movment>();
     }
     public void Shoot()
     {
-        Vector2 direction = Vector2.up; 
+        Vector2 direction = movement.GetBulletDirection();
 
         //float halfSpread = weaponType.spreadDegres / 2;
-        
+
         for (int i = 0; i < weaponType.bulletPerShot; i++) 
         {
             GameObject bulletObj = Instantiate(weaponType.bulletPrefab);
