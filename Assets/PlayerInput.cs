@@ -14,6 +14,10 @@ public class PlayerInput : MonoBehaviour
     {
         movement.RotateToMousePos(PlayerMousePos());
         movement.Move(PlayerMovement());
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            movement.Dash(PlayerMovement());
+        }
     }
     private static Vector3 PlayerMousePos()
     {
@@ -23,6 +27,7 @@ public class PlayerInput : MonoBehaviour
     }
     private static Vector2 PlayerMovement()
     {
+       
         Vector2 inputDirection;
         float xAxis = Input.GetAxis("Horizontal");
         float yAxis = Input.GetAxis("Vertical");
