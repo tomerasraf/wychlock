@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
     public void Damage(int damage)
     {
         hp -= damage;
-       // healthSlider.value=hp;
+        healthSlider.value=hp;
 
         if (hp < 0)
         {
