@@ -30,6 +30,14 @@ public class Weapon : MonoBehaviour
     {
         movement = GetComponent<Movment>();
     }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
+    }
     public void Shoot()
     {
         Vector2 direction = movement.GetBulletDirection();
