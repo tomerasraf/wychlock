@@ -9,28 +9,22 @@ public enum WeaponTypes
     Sniper,
     GrenadeLauncher
 }
-
-
-
+[CreateAssetMenu(fileName = "NewWeapon", menuName = "Weapons")]
 public class WeaponType : ScriptableObject
 {
-    WeaponTypes weaponType;
-    int damage;
-    float spreadDegree;
+    public WeaponTypes weaponType;
+    public GameObject bulletPrefab;
+    public int bulletPerShot;
+    public int bulletDamage;
+    public float spreadDegres;
+    public float lifeSpan;
+    public float recoilForce;
     
 }
 public class Weapon : MonoBehaviour
 {
-
-    // Start is called before the first frame update
-    void Start()
+    public void Shoot()
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
