@@ -47,9 +47,18 @@ public class Weapon : MonoBehaviour
     }
     public void Shoot()
     {
-        Vector2 direction = movement.GetBarrelDirection();
+        Vector2 barrelDirection= movement.GetBarrelDirection();
 
-        //float halfSpread = weaponType.spreadDegres / 2;
+        float halfCone = weaponType.spreadDeegres / 2;
+        float randomAngle = Random.Range(-halfCone, halfCone);
+        Quaternion randomSpree = Quaternion.Euler(0,0,randomAngle);
+        Vector2 direction = randomSpree * (Vector3)barrelDirection;
+        print(barrelDirection);
+        print(weaponType.spreadDeegres);
+        print(halfCone);
+        print(randomAngle);
+        print(randomSpree);
+        print(direction);
 
         for (int i = 0; i < weaponType.bulletPerShot; i++)
         {
