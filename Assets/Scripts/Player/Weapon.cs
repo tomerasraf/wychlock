@@ -47,7 +47,7 @@ public class Weapon : MonoBehaviour
     }
     public void Shoot()
     {
-        Vector2 direction = movement.GetBulletDirection();
+        Vector2 direction = movement.GetBarrelDirection();
 
         //float halfSpread = weaponType.spreadDegres / 2;
 
