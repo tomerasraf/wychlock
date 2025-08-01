@@ -8,23 +8,27 @@ public class Movment : MonoBehaviour
     [SerializeField] private float speed = 3.0f;
     [SerializeField] private Transform body;
     private Vector2 rotationDir = Vector2.zero;
-    private Vector2 inputDirection = Vector2.zero;
+    public Vector2 inputDirection;
+    public Vector3 mousePos;
 
-
-    void playerMovement()
+    
+    public void Move(Vector2 inputDirection)
     {
-        float xAxis = Input.GetAxis("Horizontal");
-        float yAxis = Input.GetAxis("Vertical");
-        
-        inputDirection = new Vector2(xAxis, yAxis).normalized;
-        
         transform.Translate(inputDirection * speed * Time.deltaTime);
     }
 
-    void PlayerRotation()
+    private static Vector2 PlayerMovement()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0f;
+        Vector2 inputDirection;
+        float xAxis = Input.GetAxis("Horizontal");
+        float yAxis = Input.GetAxis("Vertical");
+
+        inputDirection = new Vector2(xAxis, yAxis).normalized;
+        return inputDirection;
+    }
+
+    public void RotateToMousePos(Vector3 mousePos)
+    {
         
         Vector2 direction = (mousePos - transform.position).normalized;
        
@@ -37,10 +41,10 @@ public class Movment : MonoBehaviour
     {
         return rotationDir;
     }
-    
-    private void Update()
+
+    private static void PlayerMousePos()
     {
-        playerMovement();
-        PlayerRotation();
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f;
     }
 }
