@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: Pistol
+  m_Name: Weapon
   m_EditorClassIdentifier: Assembly-CSharp::WeaponType
   weaponType: 0
-  bulletPerShot: 1
-  spreadDegres: 30
-  recoilForce: 0.1
+  bulletPerShot: 0
+  spreadDegres: 0
+  recoilForce: 0
   bulletPrefab: {fileID: 0}
   bulletSpeed: 0
-  bulletDamage: 30
-  lifeSpan: 2
+  bulletDamage: 0
+  lifeSpan: 0
