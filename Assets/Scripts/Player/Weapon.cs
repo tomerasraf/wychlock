@@ -30,13 +30,7 @@ public class Weapon : MonoBehaviour
         }
         
         Vector2 barrelDirection= movement.GetBarrelDirection();
-
-        float halfCone = weaponType.spreadDeegres / 2;
-        float randomAngle = Random.Range(-halfCone, halfCone);
-        Quaternion randomSpree = Quaternion.Euler(0,0,randomAngle);
-        Vector2 direction = randomSpree * (Vector3)barrelDirection;
-
-
+        
         for (int i = 0; i < weaponType.bulletPerShot; i++)
         {
             GameObject bulletObj = Instantiate(weaponType.bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
