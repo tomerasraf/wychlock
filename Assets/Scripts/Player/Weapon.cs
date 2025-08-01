@@ -56,10 +56,14 @@ public class Weapon : MonoBehaviour
 
         for (int i = 0; i < weaponType.bulletPerShot; i++)
         {
+            print(bulletSpawnPoint.position);
             GameObject bulletObj = Instantiate(weaponType.bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
             Projectile bullet = bulletObj.GetComponent<Projectile>();
             bullet.Init(weaponType.bulletSpeed, direction, weaponType.bulletDamage, weaponType.lifeSpan);
         }
+
+        //Vector3 recoilDirection = Quaternion.Euler(0, 0, 180) * direction;
+        //transform.position += recoilDirection * weaponType.recoilForce;
 
         canShoot = false;
         StartCoroutine(FireRatePause());
