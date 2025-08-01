@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     private float speed;
     private Vector2 direction;
     private int damage = 20;
-    private float lifeTime = 2f;
+    private float lifeTime = 30f;
 
     private float lifeTimer = 0;
 
