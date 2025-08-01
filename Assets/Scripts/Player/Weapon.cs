@@ -53,12 +53,6 @@ public class Weapon : MonoBehaviour
         float randomAngle = Random.Range(-halfCone, halfCone);
         Quaternion randomSpree = Quaternion.Euler(0,0,randomAngle);
         Vector2 direction = randomSpree * (Vector3)barrelDirection;
-        print(barrelDirection);
-        print(weaponType.spreadDeegres);
-        print(halfCone);
-        print(randomAngle);
-        print(randomSpree);
-        print(direction);
 
         for (int i = 0; i < weaponType.bulletPerShot; i++)
         {
