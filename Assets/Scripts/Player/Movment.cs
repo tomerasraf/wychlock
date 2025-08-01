@@ -33,8 +33,6 @@ public class Movment : MonoBehaviour
         body.rotation = Quaternion.Euler(0f, 0f, angle + 180);
     }
 
-
-
     private void Update()
     {
         playerMovement();
