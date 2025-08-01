@@ -47,18 +47,13 @@ public class Weapon : MonoBehaviour
     }
     public void Shoot()
     {
-        Vector2 barrelDirection= movement.GetBarrelDirection();
-
-        float halfCone = weaponType.spreadDeegres / 2;
-        float randomAngle = Random.Range(-halfCone, halfCone);
-        Quaternion randomSpree = Quaternion.Euler(0,0,randomAngle);
-        Vector2 direction = randomSpree * (Vector3)barrelDirection;
+        Vector2 barrelDirection = movement.GetBarrelDirection();
 
         for (int i = 0; i < weaponType.bulletPerShot; i++)
         {
-            print(bulletSpawnPoint.position);
             GameObject bulletObj = Instantiate(weaponType.bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
             Projectile bullet = bulletObj.GetComponent<Projectile>();
+            Vector2 direction = RandomSpreadOffset(barrelDirection);
             bullet.Init(weaponType.bulletSpeed, direction, weaponType.bulletDamage, weaponType.lifeSpan);
         }
 
@@ -69,6 +64,16 @@ public class Weapon : MonoBehaviour
         StartCoroutine(FireRatePause());
 
     }
+
+    private Vector2 RandomSpreadOffset(Vector2 barrelDirection)
+    {
+        float halfCone = weaponType.spreadDeegres / 2;
+        float randomAngle = Random.Range(-halfCone, halfCone);
+        Quaternion randomSpree = Quaternion.Euler(0, 0, randomAngle);
+        Vector2 direction = randomSpree * (Vector3)barrelDirection;
+        return direction;
+    }
+
     private IEnumerator FireRatePause()
     {
         yield return new WaitForSeconds(weaponType.fireRate);
