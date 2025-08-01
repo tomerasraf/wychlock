@@ -33,6 +33,11 @@ public class Movment : MonoBehaviour
         body.rotation = Quaternion.Euler(0f, 0f, angle + 180);
     }
 
+    public Vector2 GetBulletDirection()
+    {
+        return rotationDir;
+    }
+    
     private void Update()
     {
         playerMovement();
