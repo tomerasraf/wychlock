@@ -251,6 +251,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24640800}
   m_CullTransparentMesh: 1
+--- !u!1 &90073599 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 971539127165217122, guid: 348f5217031c98745a767be53e2bf4fd, type: 3}
+  m_PrefabInstance: {fileID: 6227849600676420243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &90073600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90073599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f609204767d32de458a8630c80e00047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - {fileID: 990347794}
+  - {fileID: 2052271231}
 --- !u!1 &151348503
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,10 +2061,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 990347794}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 90073600}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: PlayNextDialogue
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2091,6 +2111,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745335785}
   m_CullTransparentMesh: 1
+--- !u!1 &2052271231 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4503000793111356410, guid: 66b4fee5daea3764b91aac1575998e49, type: 3}
+  m_PrefabInstance: {fileID: 7335017940401901045}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2115060698
 GameObject:
   m_ObjectHideFlags: 0
@@ -2481,7 +2506,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 971539127165217122, guid: 348f5217031c98745a767be53e2bf4fd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 90073600}
   m_SourcePrefab: {fileID: 100100000, guid: 348f5217031c98745a767be53e2bf4fd, type: 3}
 --- !u!1001 &7335017940401901045
 PrefabInstance:
