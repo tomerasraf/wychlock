@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd017660c55f3a4f86fd3f32407d6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: Like I killed THE LAST wizard here...
+  input: I will take your MOVES if you do!
   textColor: {r: 0, g: 0, b: 0, a: 1}
   delay: 0.1
   delayBetweenLines: 0
@@ -922,7 +922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd017660c55f3a4f86fd3f32407d6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: You be MAD!
+  input: Damm CURSE!
   textColor: {r: 1, g: 0, b: 0, a: 1}
   delay: 0.1
   delayBetweenLines: 0
@@ -1565,7 +1565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd017660c55f3a4f86fd3f32407d6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: HAHAHA!
+  input: HAHAHA! Please TRY!
   textColor: {r: 0, g: 0, b: 0, a: 1}
   delay: 0.1
   delayBetweenLines: 0
