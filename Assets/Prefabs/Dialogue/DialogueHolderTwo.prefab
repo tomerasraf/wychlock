@@ -70,7 +70,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: ' '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 82dbc99ffde22a34f8afab2df473accc, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -95,8 +95,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &3100664844875280369
@@ -155,6 +155,8 @@ MonoBehaviour:
   delayBetweenLines: 0
   sounds:
   - {fileID: 8300000, guid: 162705fb8b28a3546ac7aa5c89dbd6ac, type: 3}
+  - {fileID: 8300000, guid: 7e3de5308c902324795b03c40322def5, type: 3}
+  - {fileID: 8300000, guid: a4e3bf1ed7feea742a91470e7f0c8277, type: 3}
   meow: {fileID: 8300000, guid: 162705fb8b28a3546ac7aa5c89dbd6ac, type: 3}
   charSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   imageHolder: {fileID: 4891272459971450817}
@@ -282,7 +284,7 @@ RectTransform:
   m_GameObject: {fileID: 4503000793111356410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99702185, y: 0.99702185, z: 0.99702185}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 170950913433038404}
@@ -414,7 +416,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: ' '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 82dbc99ffde22a34f8afab2df473accc, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -439,8 +441,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -478,7 +480,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1897832511749443826
@@ -499,6 +501,8 @@ MonoBehaviour:
   delayBetweenLines: 0
   sounds:
   - {fileID: 8300000, guid: 162705fb8b28a3546ac7aa5c89dbd6ac, type: 3}
+  - {fileID: 8300000, guid: 7e3de5308c902324795b03c40322def5, type: 3}
+  - {fileID: 8300000, guid: a4e3bf1ed7feea742a91470e7f0c8277, type: 3}
   meow: {fileID: 8300000, guid: 162705fb8b28a3546ac7aa5c89dbd6ac, type: 3}
   charSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   imageHolder: {fileID: 458417168594262945}
