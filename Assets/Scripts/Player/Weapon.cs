@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
 
     public AudioClip cantShoot_SFX;
 
-    [SerializeField] SpriteRenderer weaponSprite;
+    public SpriteRenderer weaponSprite;
     [SerializeField] SpriteRenderer bulletSprite;
 
     private bool canShoot = true;

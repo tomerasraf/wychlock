@@ -111,7 +111,6 @@ public class PlayerInput : MonoBehaviour
         {
             GameManager.Instance.setRecordedFrames(recordedFrames);
             WinAnimationTween();
-            
         }
     }
     public List<PlayerInputFrame> GetInputFrameRecord()
