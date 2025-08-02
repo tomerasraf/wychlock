@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         player.transform.DOMoveX(-8, 1.8f).OnComplete(() =>
         {
             player.GetComponent<PlayerInput>().enabled = true;
-            boss.GetComponent<InputReciver>().isPlaying = true;
+        
         });
         
         

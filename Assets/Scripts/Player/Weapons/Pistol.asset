@@ -19,7 +19,7 @@ MonoBehaviour:
   recoilForce: 1
   bulletPrefab: {fileID: 3991459269449835618, guid: 232378ea131284a47bd91f0a9b0e7db9, type: 3}
   bulletSprite: {fileID: 0}
-  weaponSprite: {fileID: 0}
+  weaponSprite: {fileID: 21300000, guid: 5c3478abf0d57ea4187187a97b078471, type: 3}
   bulletSound: {fileID: 8300000, guid: eee60146b1868f34ba5a7faac64011fa, type: 3}
   bulletSpeed: 30
   bulletDamage: 30

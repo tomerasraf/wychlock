@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using TMPro;
@@ -31,6 +32,12 @@ namespace DialogueSystem
         private Image imageHolder;
 
         private IEnumerator lineAppear;
+        public static Action finishedDialogue;
+
+        private void Start()
+        {
+            
+        }
 
         private void Awake()
         {
@@ -58,7 +65,10 @@ namespace DialogueSystem
                     textHolder.text = input;
                 }
                 else
+                {
                     finished = true;
+                    finishedDialogue?.Invoke(); 
+                }
             }
         }
 

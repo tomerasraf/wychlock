@@ -1,10 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> dialogueSequence = new List<GameObject>();
-    private int currentDialogueIndex = 1;
+    public int currentDialogueIndex = 1;
+    public static Action finishedDialogue;
 
     public void PlayNextDialogue()
     {
@@ -16,6 +18,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             Debug.Log("End of dialogue sequence.");
+            finishedDialogue?.Invoke();
         }
     }
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 public class InputReciver : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class InputReciver : MonoBehaviour
     private Movment movment;
     private Weapon weapon;
     public bool isPlaying = false;
+    
     void ReciveRecording()
     {
         recordedFrames = GameManager.Instance.getRecordedFrames();
@@ -38,13 +40,19 @@ public class InputReciver : MonoBehaviour
             transform.DOMove(GameManager.Instance.GetBossSpawnPoint().position, 0.5f).OnComplete(() =>
             {
                 currentFrame = 0;
-                print("reset recordinig");
             });
         }
     }
 
+    void setrecordingon()
+    {
+        isPlaying = true;
+    }
     void Start()
     {
+        DialogueManager.finishedDialogue += setrecordingon;
+        
+        
         movment = GetComponent<Movment>();
         weapon = GetComponent<Weapon>();
     }
