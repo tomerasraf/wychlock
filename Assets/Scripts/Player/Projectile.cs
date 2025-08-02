@@ -41,13 +41,15 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void ChangeDirectionWAllBounce(WallSide wallThatProjectileHit)
+    public void ChangeDirectionWAllBounce(bool isSideWall)
     {
-        switch (wallThatProjectileHit)
+        if (isSideWall)
         {
-            case WallSide.Left:
-                direction.x *= -1;
-                break;
+            direction.x *= -1;
+        }
+        else
+        {
+            direction.y *= -1;
         }
     }
 
