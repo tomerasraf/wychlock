@@ -442,10 +442,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 619860349}
     m_Modifications:
-    - target: {fileID: 2489922027886914638, guid: 153eb9fe5e61e6a4cb292ee576d0b53d, type: 3}
-      propertyPath: input
-      value: YES!! HAHAHA! Please! TRY!
-      objectReference: {fileID: 0}
     - target: {fileID: 2870632036860811091, guid: 153eb9fe5e61e6a4cb292ee576d0b53d, type: 3}
       propertyPath: m_Name
       value: DialogueHolder
