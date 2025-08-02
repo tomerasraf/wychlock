@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: f658e71395ddc5d43a43b475afe0ec96
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - wallhit_VFX: {fileID: 4341540909590550618, guid: 12f820581979fe3429f3f780973d5942, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

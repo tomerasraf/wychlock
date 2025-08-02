@@ -41,14 +41,22 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void ChangeDirectionWAllBounce(WallSide wallThatProjectileHit)
+    {
+        switch (wallThatProjectileHit)
+        {
+            case WallSide.Left:
+                direction.x *= -1;
+                break;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print("LLL");
         Health health = other.GetComponent<Health>();
                 
         if (health != null)
         {
-            print("LLL");
             health.Damage(damage);
             Destroy(gameObject);
         }
