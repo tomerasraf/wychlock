@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Health : MonoBehaviour
 {
@@ -55,6 +56,8 @@ public class Health : MonoBehaviour
         {
             isPlayer = true;
         }
+        
+                
         AudioManager.Instance.PlaySFX(die_sfx, 1);
         playerDeath.Invoke(isPlayer);
     }

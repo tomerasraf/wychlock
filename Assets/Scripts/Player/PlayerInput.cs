@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 [System.Serializable]
@@ -70,17 +71,47 @@ public class PlayerInput : MonoBehaviour
         return inputDirection;
     }
 
+    void WinAnimationTween()
+    {
+        this.enabled = false;
+
+        enemyReciver.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f).OnComplete(() =>
+        {
+            transform.DOScale(1.5f, 2f).OnComplete(() =>
+            {
+                transform.DOScale(0, 1f);
+            });
+                
+            transform.GetComponent<SpriteRenderer>().DOFade(0.5f, 1f);
+                
+            transform.DOMoveY(3, 2).OnComplete(() =>
+            {
+                transform.DOMove(enemyReciver.transform.position, 0.2f).OnComplete(() =>
+                {
+                    enemyReciver.transform.DOShakeRotation(1f, Vector3.forward * 15, 7).OnComplete(() =>
+                    {
+                        enemyReciver.gameObject.SetActive(false);
+                        GameManager.Instance.StartNewRun(false);
+                        GameManager.Instance.SetPlayerPosition();
+                    });
+                });
+            });
+            
+          
+        });
+    }
     void decideRecording(bool isPlayer)
     { 
         if (isPlayer)
         {
             recordedFrames.Clear();
+            GameManager.Instance.SetPlayerPosition();
         }
         else
         {
             GameManager.Instance.setRecordedFrames(recordedFrames);
-            enemyReciver.gameObject.SetActive(false);
-            GameManager.Instance.StartNewRun();
+            WinAnimationTween();
+            
         }
     }
     public List<PlayerInputFrame> GetInputFrameRecord()

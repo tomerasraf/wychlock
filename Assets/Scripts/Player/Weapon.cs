@@ -11,6 +11,7 @@ public enum WeaponTypes
 }
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] WeaponType[] allWeapons;
     [SerializeField] WeaponType weaponType;
     [SerializeField] Movment movement;
     [SerializeField] Transform bulletSpawnPoint;
@@ -24,6 +25,7 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         canShoot = true;
+        weaponType = allWeapons[Random.Range(0, allWeapons.Length)];
     }
     public void Shoot()
     {
