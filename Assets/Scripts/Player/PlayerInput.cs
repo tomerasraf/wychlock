@@ -47,6 +47,8 @@ public class PlayerInput : MonoBehaviour
 
     void RecordFrames()
     {
+        
+        
         currentFrame.moveDir = PlayerMovement();
         currentFrame.moveDir.x *= -1;
         currentFrame.mousePos = PlayerMousePos();

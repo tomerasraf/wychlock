@@ -62,9 +62,6 @@ public class Health : MonoBehaviour
 
     private void UIUpdate()
     {
-        print(gameObject.name + " hp: " + hp);
-        print(gameObject.name + " maxhp: " + maxHp);
-        print(gameObject.name + " fill: " + (float)hp / (float)maxHp);
         healthUI.fillAmount = (float)hp / (float)maxHp;
     }
 }
