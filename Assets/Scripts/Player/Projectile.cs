@@ -31,8 +31,7 @@ public class Projectile : MonoBehaviour
         lifeTimer += Time.deltaTime;
         if (lifeTimer < lifeTime)
         {
-            //transform.position += speed * Time.deltaTime * (Vector3)direction;
-            rb.AddForce(speed * Time.deltaTime * (Vector3)direction, ForceMode2D.Force);
+            transform.position += speed * Time.deltaTime * (Vector3)direction;
             return;
         }
         Destroy(gameObject);
