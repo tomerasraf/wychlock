@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void PlayVFX(AudioClip clip, float volume)
+    public void PlaySFX(AudioClip clip, float volume)
     {
         sfx_AudioSource.PlayOneShot(clip, volume);
     }

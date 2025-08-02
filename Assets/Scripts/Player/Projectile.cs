@@ -13,6 +13,8 @@ public class Projectile : MonoBehaviour
 
     private float lifeTimer = 0;
 
+    Rigidbody2D rb;
+
     public void Init(float speed, Vector2 direction, int damage, float lifeTime)
     {
         this.speed = speed;
@@ -29,8 +31,8 @@ public class Projectile : MonoBehaviour
         lifeTimer += Time.deltaTime;
         if (lifeTimer < lifeTime)
         {
-           transform.position += speed * Time.deltaTime * (Vector3)direction;
-           return;
+            transform.position += speed * Time.deltaTime * (Vector3)direction;
+            return;
         }
         Destroy(gameObject);
     }
@@ -44,5 +46,9 @@ public class Projectile : MonoBehaviour
             health.Damage(damage);
             Destroy(gameObject);
         }
+    }
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
     }
 }

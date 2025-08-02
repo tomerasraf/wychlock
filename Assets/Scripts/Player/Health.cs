@@ -13,6 +13,10 @@ public class Health : MonoBehaviour
     public Slider healthSlider;
     private bool isPlayer = true;
 
+    public AudioClip hurt_sfx;
+    public AudioClip health_sfx;
+    public AudioClip die_sfx;
+
     private void Start()
     {
         Heal(maxHp);
@@ -28,6 +32,7 @@ public class Health : MonoBehaviour
         {
             KillPlayer();
         }
+        AudioManager.Instance.PlaySFX(hurt_sfx, 1);
     }
     public void Heal(int amount)
     {
@@ -36,7 +41,7 @@ public class Health : MonoBehaviour
         {
             hp = maxHp;
         }
-
+        AudioManager.Instance.PlaySFX(health_sfx, 1);
         healthSlider.value = hp;
 
     }
@@ -50,18 +55,13 @@ public class Health : MonoBehaviour
         {
             isPlayer = true;
         }
-
+        AudioManager.Instance.PlaySFX(die_sfx, 1);
         playerDeath.Invoke(isPlayer);
     }
 
     private void Update()
     {
         healthSlider.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
-    }
-
-    public void ResetHealth()
-    {
-        hp = maxHp;
     }
 
     /*void OnDisable()
