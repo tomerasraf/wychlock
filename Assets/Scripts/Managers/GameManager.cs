@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-
+using UnityEngine.UIElements;
 public enum GAME_STATE
 {
     Battle,
@@ -32,9 +32,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        player.GetComponent<PlayerInput>().enabled = false;
         player.transform.position = playerSpawnPoint.position;
-        player.transform.DOShakeRotation(2.5f, Vector3.forward * 5, 10);
-        player.transform.DOMoveX(-8, 2.5f);
+        player.transform.DOMoveX(-8, 1.8f).OnComplete(() =>
+        {
+            player.GetComponent<PlayerInput>().enabled = true;
+        });
     }
 
     public void setRecordedFrames(List<PlayerInputFrame> recordedFrames)
