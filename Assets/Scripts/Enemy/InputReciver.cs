@@ -9,37 +9,49 @@ public class InputReciver : MonoBehaviour
     int currentFrame = 0;
     private Movment movment;
     private Weapon weapon;
-
+    private bool isPlaying = false;
     void ReciveRecording()
     {
         recordedFrames = GameManager.Instance.getRecordedFrames();
+        currentFrame = 0; 
     }
 
     void PlayRecordedFrame()
     {
-        for (int i = 0; i < recordedFrames.Count; i++)
-        {
-            if (currentFrame < recordedFrames.Count)
-            {
-                movment.RotateToMousePos(recordedFrames[i].mousePos);
-                movment.Move(recordedFrames[i].moveDir);
-                if (recordedFrames[i].shoot)
-                {
-                    weapon.Shoot();
-                }
+        if (!isPlaying || recordedFrames == null || recordedFrames.Count == 0)
+            return;
 
-                currentFrame++;
-            }
+        if (currentFrame < recordedFrames.Count)
+        {
+            var frame = recordedFrames[currentFrame];
+
+            movment.RotateToMousePos(frame.mousePos);
+            movment.Move(frame.moveDir);
+            if (frame.shoot)
+                weapon.Shoot();
+
+            currentFrame++;
+        }
+        else
+        {
+            isPlaying = false; // Done playing
         }
     }
 
-    IEnumerator Start()
+    void Start()
     {
-        ReciveRecording();
         movment = GetComponent<Movment>();
         weapon = GetComponent<Weapon>();
+    }
 
-        yield return new WaitForSeconds(1f);
+    private void OnEnable()
+    {
+        ReciveRecording();
+        isPlaying = true;
+    }
+
+    private void Update()
+    {
         PlayRecordedFrame();
     }
 }

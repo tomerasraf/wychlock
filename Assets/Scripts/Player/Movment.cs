@@ -19,11 +19,8 @@ public class Movment : MonoBehaviour
     
     public void RotateToMousePos(Vector3 mousePos)
     {
-
         rotationDir = (mousePos - transform.position).normalized;
-       
         float angle = Mathf.Atan2(rotationDir.y, rotationDir.x) * Mathf.Rad2Deg;
-       
         body.rotation = Quaternion.Euler(0f, 0f, angle + 180);
     }
 

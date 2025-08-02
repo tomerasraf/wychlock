@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
 {
     private List<PlayerInputFrame> recordedFrames = new List<PlayerInputFrame>();
     public static GameManager Instance;
+    [SerializeField] private GameObject boss;
+    [SerializeField] private GameObject player;
+    [SerializeField] private Transform enemySpawnPoint;
+    [SerializeField] private Transform playerSpawnPoint;
 
     void Awake()
     { 
@@ -27,6 +31,14 @@ public class GameManager : MonoBehaviour
     public List<PlayerInputFrame> getRecordedFrames()
     {
         return recordedFrames;
+    }
+
+    public void StartNewRun()
+    {
+       boss.transform.position = enemySpawnPoint.position;
+        boss.GetComponent<Health>().ResetHealth();
+        boss.SetActive(true);
+       
     }
     
 }

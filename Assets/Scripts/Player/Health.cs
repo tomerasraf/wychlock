@@ -26,7 +26,6 @@ public class Health : MonoBehaviour
 
         if (hp < 0)
         {
-            print("HELP ME");
             KillPlayer();
         }
     }
@@ -57,9 +56,14 @@ public class Health : MonoBehaviour
         healthSlider.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
     }
 
-    void OnDisable()
+    public void ResetHealth()
+    {
+        hp = maxHp;
+    }
+
+    /*void OnDisable()
     {
         gameObject.SetActive(true);
         transform.position = new Vector3(0,0,0);
-    }
+    }*/
 }

@@ -18,9 +18,11 @@ public class PlayerInput : MonoBehaviour
 
     private Movment movement;
     private Weapon weapon;
+    private PlayerInputFrame currentFrame;
 
     private void Start()
     {
+        currentFrame = new PlayerInputFrame();
         movement = GetComponent<Movment>();
         weapon = GetComponent<Weapon>();
         Health.playerDeath += decideRecording;
@@ -29,20 +31,22 @@ public class PlayerInput : MonoBehaviour
     {
         movement.RotateToMousePos(PlayerMousePos());
         movement.Move(PlayerMovement());
+        
         if (Input.GetMouseButtonDown(0))
         {
             weapon.Shoot();
         }
-        //RecordFrames();
+        RecordFrames();
     }
 
     void RecordFrames()
     {
-        PlayerInputFrame frame = new PlayerInputFrame();
-        frame.moveDir = PlayerMovement();
-        frame.mousePos = PlayerMousePos();
-        frame.shoot = Input.GetButtonDown("Fire1");
-        recordedFrames.Add(frame);
+        currentFrame.moveDir = PlayerMovement();
+        currentFrame.moveDir.x *= -1;
+        currentFrame.mousePos = PlayerMousePos();
+        currentFrame.mousePos .x *= -1;
+        currentFrame.shoot = Input.GetMouseButtonDown(0);
+        recordedFrames.Add(currentFrame);
     }
     
     private static Vector3 PlayerMousePos()
@@ -70,6 +74,8 @@ public class PlayerInput : MonoBehaviour
         else
         {
             GameManager.Instance.setRecordedFrames(recordedFrames);
+            enemyReciver.gameObject.SetActive(false);
+            GameManager.Instance.StartNewRun();
         }
     }
     public List<PlayerInputFrame> GetInputFrameRecord()

@@ -18,12 +18,10 @@ public class Weapon : MonoBehaviour
     private bool canShoot = true;
     private void Start()
     {
-        movement = GetComponent<Movment>();
         canShoot = true;
     }
     public void Shoot()
     {
-
         if (!canShoot)
         {
             return;
@@ -44,7 +42,6 @@ public class Weapon : MonoBehaviour
 
         canShoot = false;
         StartCoroutine(FireRatePause());
-
     }
 
     private Vector2 RandomSpreadOffset(Vector2 barrelDirection)
