@@ -406,6 +406,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 619860349}
     m_Modifications:
+    - target: {fileID: 2148590401740607599, guid: 153eb9fe5e61e6a4cb292ee576d0b53d, type: 3}
+      propertyPath: input
+      value: Damm CURSED GEM!
+      objectReference: {fileID: 0}
     - target: {fileID: 2870632036860811091, guid: 153eb9fe5e61e6a4cb292ee576d0b53d, type: 3}
       propertyPath: m_Name
       value: DialogueHolder
@@ -1869,6 +1873,10 @@ PrefabInstance:
     - target: {fileID: 4503000793111356410, guid: 66b4fee5daea3764b91aac1575998e49, type: 3}
       propertyPath: m_Name
       value: DialogueHolderTwo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277364795449172150, guid: 66b4fee5daea3764b91aac1575998e49, type: 3}
+      propertyPath: input
+      value: oh no... the GEM took the last wizard's MOVES!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
