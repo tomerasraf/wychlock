@@ -1151,7 +1151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd017660c55f3a4f86fd3f32407d6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: 'I will kill you and end this! '
+  input: If I'll KILL YOU, you will Move like ME?
   textColor: {r: 0.47450984, g: 0.16470589, b: 0.17254902, a: 1}
   delay: 0.1
   delayBetweenLines: 0
@@ -1230,7 +1230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6634046603111614473
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1240,7 +1240,7 @@ RectTransform:
   m_GameObject: {fileID: 2870632036860811091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.13, y: 0.13, z: 0.13}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8578551117288689048}
@@ -1454,7 +1454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd017660c55f3a4f86fd3f32407d6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: Damm CURSE!
+  input: What do you mean TAKE MY MOVES??
   textColor: {r: 0.47450984, g: 0.16470589, b: 0.17254902, a: 1}
   delay: 0.1
   delayBetweenLines: 0
@@ -2499,7 +2499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd017660c55f3a4f86fd3f32407d6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: HAHAHA! Please TRY!
+  input: YES!! HAHAHA! Please! TRY!
   textColor: {r: 0.47450984, g: 0.16470589, b: 0.17254902, a: 1}
   delay: 0.1
   delayBetweenLines: 0

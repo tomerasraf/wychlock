@@ -44,7 +44,10 @@ public class PlayerInput : MonoBehaviour
             movement.Dash(PlayerMovement());
         }
     }
-
+    public void StartNewRecording()
+    {
+        recordedFrames.Clear();
+    }
     void RecordFrames()
     {
         
@@ -76,6 +79,8 @@ public class PlayerInput : MonoBehaviour
     void WinAnimationTween()
     {
         this.enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        enemyReciver.GetComponent<Collider2D>().enabled = false;
 
         enemyReciver.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f).OnComplete(() =>
         {

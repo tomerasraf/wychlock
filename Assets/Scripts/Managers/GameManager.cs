@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        DialogueSystem.DialogueHolder.OnDialogueHolderFinished += EnableGameplayControls;
     }
 
     IEnumerator Start()
@@ -39,28 +41,40 @@ public class GameManager : MonoBehaviour
 
     public void SetPlayerPosition()
     {
-        dialogueManager.PlayNextDialogue();
+        //dialogueManager.PlayNextDialogue();
         player.GetComponent<Health>().Heal(100);
         boss.GetComponent<InputReciver>().isPlaying = false;
         player.GetComponent<PlayerInput>().enabled = false;
+        player.GetComponent<Collider2D>().enabled = false;
+        boss.GetComponent<Collider2D>().enabled = false;
         player.transform.position = playerSpawnPoint.position;
         player.transform.localScale = Vector3.one;
         Color color = player.GetComponent<SpriteRenderer>().color;
         color.a = 1;    
         player.GetComponent<SpriteRenderer>().color = color;
-        player.transform.DOMoveX(-8, 1.8f).OnComplete(() =>
+        var moveTween = player.transform.DOMoveX(-8, 1.8f);
+        if (!dialogueManager.TryPlayNextDialogue())
         {
-            player.GetComponent<PlayerInput>().enabled = true;
-            boss.GetComponent<InputReciver>().isPlaying = true;
-        
-        });
-        
-        
+            moveTween.OnComplete(() =>
+            {
+                EnableGameplayControls();
+            });
+        }
+    }
+
+    private void EnableGameplayControls()
+    {
+        player.GetComponent<PlayerInput>().enabled = true;
+        player.GetComponent<PlayerInput>().StartNewRecording();
+        player.GetComponent<Collider2D>().enabled = true;
+        boss.GetComponent<InputReciver>().isPlaying = true;
+        boss.GetComponent<Collider2D>().enabled = true;
+        boss.GetComponent<Weapon>().canShoot = true;
     }
 
     public void setRecordedFrames(List<PlayerInputFrame> recordedFrames)
     {
-        this.recordedFrames = recordedFrames;
+        this.recordedFrames = new List<PlayerInputFrame>(recordedFrames);
     }
 
     public List<PlayerInputFrame> getRecordedFrames()

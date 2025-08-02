@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,8 @@ namespace DialogueSystem
 {
     public class DialogueHolder : MonoBehaviour
     {
+        public static event Action OnDialogueHolderFinished;
+
         private IEnumerator dialogueSeq;
         private bool dialogueFinished;
 
@@ -69,6 +72,7 @@ namespace DialogueSystem
             dialogueFinished = true;
             gameObject.SetActive(false); //set active
 
+            OnDialogueHolderFinished?.Invoke();
 
 
         }

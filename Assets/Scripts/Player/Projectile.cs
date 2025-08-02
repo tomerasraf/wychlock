@@ -16,19 +16,20 @@ public class Projectile : MonoBehaviour
 
     private float lifeTimer = 0;
 
-    public void Init(float speed, Vector2 direction, int damage, float lifeTime, Sprite sprite)
+    public void Init(float speed, Vector2 direction, int damage, float lifeTime)
     {
         this.speed = speed;
         this.direction = direction;
         this.damage = damage;
         this.lifeTime = lifeTime;
-        this.sprite = sprite;
+
+        UpdateRotation();
+
     }
     private void OnEnable()
     {
         lifeTimer = 0;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = sprite;
     }
     private void Update()
     {
@@ -40,7 +41,17 @@ public class Projectile : MonoBehaviour
         }
         Destroy(gameObject);
     }
-
+    private void UpdateRotation()
+    {
+        // Check to avoid errors if direction is zero
+        if (direction != Vector2.zero)
+        {
+            // Calculate the angle in degrees
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            // Set the rotation of the projectile's transform
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        }
+    }
     public void ChangeDirectionWAllBounce(bool isSideWall)
     {
         if (isSideWall)
@@ -51,6 +62,8 @@ public class Projectile : MonoBehaviour
         {
             direction.y *= -1;
         }
+        UpdateRotation();
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -12,7 +12,8 @@ public class InputReciver : MonoBehaviour
     private Movment movment;
     private Weapon weapon;
     public bool isPlaying = false;
-    
+    public bool isResetting = false;
+
     void ReciveRecording()
     {
         recordedFrames = GameManager.Instance.getRecordedFrames();
@@ -21,7 +22,8 @@ public class InputReciver : MonoBehaviour
 
     void PlayRecordedFrame()
     {
-        if (!isPlaying || recordedFrames == null || recordedFrames.Count == 0)
+        if (!isPlaying || recordedFrames == null || recordedFrames.Count == 0
+            || isResetting)
             return;
 
         if (currentFrame < recordedFrames.Count)
@@ -37,22 +39,18 @@ public class InputReciver : MonoBehaviour
         }
         else
         {
+            isResetting = true;
+
             transform.DOMove(GameManager.Instance.GetBossSpawnPoint().position, 0.5f).OnComplete(() =>
             {
                 currentFrame = 0;
+                isResetting = false ;
             });
         }
     }
 
-    void setrecordingon()
-    {
-        isPlaying = true;
-    }
     void Start()
-    {
-        DialogueManager.finishedDialogue += setrecordingon;
-        
-        
+    {           
         movment = GetComponent<Movment>();
         weapon = GetComponent<Weapon>();
     }
@@ -61,6 +59,7 @@ public class InputReciver : MonoBehaviour
     {
         ReciveRecording();
         isPlaying = true;
+        isResetting = false;
     }
 
     private void Update()
