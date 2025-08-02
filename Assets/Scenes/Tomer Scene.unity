@@ -221,6 +221,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8845478231685079047, guid: 06783b787112c1e4182df147374b2f93, type: 3}
+      propertyPath: dashMult
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8845478231685079047, guid: 06783b787112c1e4182df147374b2f93, type: 3}
+      propertyPath: timeOfdash
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -37,6 +37,11 @@ public class PlayerInput : MonoBehaviour
             weapon.Shoot();
         }
         RecordFrames();
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            movement.Dash(PlayerMovement());
+        }
     }
 
     void RecordFrames()

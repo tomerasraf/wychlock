@@ -11,12 +11,40 @@ public class Movment : MonoBehaviour
     public Vector2 inputDirection;
     public Vector3 mousePos;
 
-    
+    [SerializeField] private float dashMult = 2f;
+    [SerializeField] private float timeOfdash = 2f;
+    bool canDash = true;
+
+
+
     public void Move(Vector2 inputDirection)
     {
         transform.Translate(inputDirection * speed * Time.deltaTime);
     }
-    
+
+    public void Dash(Vector2 inputDirection)
+    {
+        if (inputDirection != Vector2.zero && canDash)
+        {
+            canDash = false;
+            StartCoroutine(DashSeq(inputDirection));
+        }
+    }
+
+    IEnumerator DashSeq(Vector2 inputDirection)
+    {
+        float timer = 0f;
+
+        while (timer < timeOfdash)
+        {
+            transform.Translate(inputDirection * speed * dashMult * Time.deltaTime);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        
+        canDash = true;
+    }
     public void RotateToMousePos(Vector3 mousePos)
     {
         rotationDir = (mousePos - transform.position).normalized;
