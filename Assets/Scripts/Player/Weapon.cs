@@ -15,6 +15,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] Movment movement;
     [SerializeField] Transform bulletSpawnPoint;
 
+    public AudioClip cantShoot_SFX;
+
     private bool canShoot = true;
     private void Start()
     {
@@ -24,6 +26,7 @@ public class Weapon : MonoBehaviour
     {
         if (!canShoot)
         {
+            AudioManager.Instance.PlaySFX(cantShoot_SFX, 1);
             return;
         }
         

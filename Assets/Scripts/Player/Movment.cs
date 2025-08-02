@@ -10,6 +10,7 @@ public class Movment : MonoBehaviour
     private Vector2 rotationDir;
     public Vector2 inputDirection;
     public Vector3 mousePos;
+    public AudioClip dash_sfx;
 
     [SerializeField] private float dashMult = 2f;
     [SerializeField] private float timeOfdash = 2f;
@@ -31,6 +32,7 @@ public class Movment : MonoBehaviour
 
     IEnumerator DashSeq(Vector2 inputDirection)
     {
+        AudioManager.Instance.PlaySFX(dash_sfx, 1);
         float timer = 0f;
 
         while (timer < timeOfdash)
