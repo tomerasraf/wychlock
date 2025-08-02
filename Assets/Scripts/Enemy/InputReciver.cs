@@ -10,7 +10,7 @@ public class InputReciver : MonoBehaviour
     int currentFrame = 0;
     private Movment movment;
     private Weapon weapon;
-    private bool isPlaying = false;
+    public bool isPlaying = false;
     void ReciveRecording()
     {
         recordedFrames = GameManager.Instance.getRecordedFrames();
@@ -38,6 +38,7 @@ public class InputReciver : MonoBehaviour
             transform.DOMove(GameManager.Instance.GetBossSpawnPoint().position, 0.5f).OnComplete(() =>
             {
                 currentFrame = 0;
+                print("reset recordinig");
             });
         }
     }

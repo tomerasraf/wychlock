@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform enemySpawnPoint;
     [SerializeField] private Transform playerSpawnPoint;
     [SerializeField] private SpriteRenderer overlay;
+    [SerializeField] private DialogueManager dialogueManager;
 
     public int deathCounter = 0;
     void Awake()
@@ -38,6 +39,9 @@ public class GameManager : MonoBehaviour
 
     public void SetPlayerPosition()
     {
+        dialogueManager.PlayNextDialogue();
+        player.GetComponent<Health>().Heal(100);
+        boss.GetComponent<InputReciver>().isPlaying = false;
         player.GetComponent<PlayerInput>().enabled = false;
         player.transform.position = playerSpawnPoint.position;
         player.transform.localScale = Vector3.one;
@@ -47,7 +51,10 @@ public class GameManager : MonoBehaviour
         player.transform.DOMoveX(-8, 1.8f).OnComplete(() =>
         {
             player.GetComponent<PlayerInput>().enabled = true;
+            boss.GetComponent<InputReciver>().isPlaying = true;
         });
+        
+        
     }
 
     public void setRecordedFrames(List<PlayerInputFrame> recordedFrames)

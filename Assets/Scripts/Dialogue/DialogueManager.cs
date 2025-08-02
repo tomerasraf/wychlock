@@ -4,7 +4,7 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> dialogueSequence = new List<GameObject>();
-    private int currentDialogueIndex = 0;
+    private int currentDialogueIndex = 1;
 
     public void PlayNextDialogue()
     {
@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
 
     public void SetDialogueIndex(int index)
     {
-        if (index >= 0 && index < dialogueSequence.Count)
+        if (index >= 1 && index < dialogueSequence.Count)
         {
             dialogueSequence[index].SetActive(true);
             currentDialogueIndex = index + 1;
