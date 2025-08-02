@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class InputReciver : MonoBehaviour
 {
@@ -34,7 +35,10 @@ public class InputReciver : MonoBehaviour
         }
         else
         {
-            isPlaying = false; // Done playing
+            transform.DOMove(GameManager.Instance.GetBossSpawnPoint().position, 0.5f).OnComplete(() =>
+            {
+                currentFrame = 0;
+            });
         }
     }
 
