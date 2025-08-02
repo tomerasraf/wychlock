@@ -3,6 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GAME_STATE
+{
+    Battle,
+    Dialog,
+    Transition
+}
 public class GameManager : MonoBehaviour
 {
     private List<PlayerInputFrame> recordedFrames = new List<PlayerInputFrame>();
@@ -11,7 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private Transform enemySpawnPoint;
     [SerializeField] private Transform playerSpawnPoint;
-
+    
     void Awake()
     {
         if (Instance != null && Instance != this)
