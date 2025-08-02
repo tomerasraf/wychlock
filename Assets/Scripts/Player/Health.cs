@@ -36,6 +36,9 @@ public class Health : MonoBehaviour
         {
             hp = maxHp;
         }
+
+        healthSlider.value = hp;
+
     }
     private void KillPlayer()
     {

@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform playerSpawnPoint;
 
     void Awake()
-    { 
+    {
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-       }
+    }
 
     public void setRecordedFrames(List<PlayerInputFrame> recordedFrames)
     {
@@ -35,10 +35,10 @@ public class GameManager : MonoBehaviour
 
     public void StartNewRun()
     {
-       boss.transform.position = enemySpawnPoint.position;
-        boss.GetComponent<Health>().ResetHealth();
+        boss.transform.position = enemySpawnPoint.position;
+        boss.GetComponent<Health>().Heal(100);
         boss.SetActive(true);
-       
+
     }
-    
+
 }

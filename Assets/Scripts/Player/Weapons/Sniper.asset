@@ -15,9 +15,9 @@ MonoBehaviour:
   weaponType: 2
   fireRate: 2
   bulletPerShot: 1
-  spreadDeegres: 5
+  spreadDeegres: 2
   recoilForce: 1
   bulletPrefab: {fileID: 3991459269449835618, guid: 232378ea131284a47bd91f0a9b0e7db9, type: 3}
-  bulletSpeed: 90
+  bulletSpeed: 45
   bulletDamage: 100
   lifeSpan: 2
