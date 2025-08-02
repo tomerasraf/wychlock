@@ -6,6 +6,8 @@ public class Wall : MonoBehaviour
 {
     public GameObject wallhit_VFX;
 
+    public AudioClip wallhit_VFXClip;
+
     public bool isSideWall;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,6 +15,7 @@ public class Wall : MonoBehaviour
         if (projectile != null)
         {
             projectile.ChangeDirectionWAllBounce(isSideWall);
+            AudioManager.Instance.PlaySFX(wallhit_VFXClip, 1);
             StartCoroutine(WallHit_VFX(collision));
         }
     }

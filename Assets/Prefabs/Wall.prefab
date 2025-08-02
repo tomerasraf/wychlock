@@ -91,4 +91,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallhit_VFX: {fileID: 0}
+  wallhit_VFXClip: {fileID: 8300000, guid: 8467e30a503e8de4cb48cf85648bf4ec, type: 3}
   isSideWall: 0
