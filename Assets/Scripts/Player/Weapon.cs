@@ -17,6 +17,9 @@ public class Weapon : MonoBehaviour
 
     public AudioClip cantShoot_SFX;
 
+    [SerializeField] SpriteRenderer weaponSprite;
+    [SerializeField] SpriteRenderer bulletSprite;
+
     private bool canShoot = true;
     private void Start()
     {
@@ -37,7 +40,7 @@ public class Weapon : MonoBehaviour
             GameObject bulletObj = Instantiate(weaponType.bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
             Projectile bullet = bulletObj.GetComponent<Projectile>();
             Vector2 direction = RandomSpreadOffset(barrelDirection);
-            bullet.Init(weaponType.bulletSpeed, direction, weaponType.bulletDamage, weaponType.lifeSpan);
+            bullet.Init(weaponType.bulletSpeed, direction, weaponType.bulletDamage, weaponType.lifeSpan, weaponType.bulletSprite);
         }
 
         //Vector3 recoilDirection = Quaternion.Euler(0, 0, 180) * direction;
