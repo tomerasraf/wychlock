@@ -40,6 +40,8 @@ public class Weapon : MonoBehaviour
         //Vector3 recoilDirection = Quaternion.Euler(0, 0, 180) * direction;
         //transform.position += recoilDirection * weaponType.recoilForce;
 
+        AudioManager.Instance.PlaySFX(weaponType.bulletSound, 1);
+
         canShoot = false;
         StartCoroutine(FireRatePause());
     }

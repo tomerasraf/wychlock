@@ -15,8 +15,6 @@ public class Movment : MonoBehaviour
     [SerializeField] private float timeOfdash = 2f;
     bool canDash = true;
 
-
-
     public void Move(Vector2 inputDirection)
     {
         transform.Translate(inputDirection * speed * Time.deltaTime);

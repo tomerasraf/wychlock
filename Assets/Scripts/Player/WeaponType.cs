@@ -10,6 +10,7 @@ public class WeaponType : ScriptableObject
     public float spreadDeegres;
     public float recoilForce;
     public GameObject bulletPrefab;
+    public AudioClip bulletSound;
     public float bulletSpeed;
     public int bulletDamage;
     public float lifeSpan;
