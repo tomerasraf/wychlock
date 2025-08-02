@@ -2,15 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum WallSide
+{
+    Left,
+    Right,
+    Top,
+    Bottom
+}
 public class Wall : MonoBehaviour
 {
     public GameObject wallhit_VFX;
+
+    public WallSide side;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Projectile>() != null)
+        collision.gameObject.TryGetComponent<Projectile>(out Projectile projectile);
+        print("wall hit");
+        if (projectile != null)
         {
+            print("wall hit by projectile");
+
+            projectile.ChangeDirectionWAllBounce(side);
             StartCoroutine(WallHit_VFX(collision));
-            Destroy(collision.gameObject);
         }
     }
 
