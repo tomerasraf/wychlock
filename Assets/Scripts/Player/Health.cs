@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     public int hp {get; private set;}
     [SerializeField] int maxHp;
     public static Action<bool> playerDeath;
-    public Slider healthSlider;
+    public Image healthUI;
     private bool isPlayer = true;
 
     public AudioClip hurt_sfx;
@@ -21,13 +21,12 @@ public class Health : MonoBehaviour
     private void Start()
     {
         Heal(maxHp);
-        healthSlider.maxValue = maxHp;
-        healthSlider.value = hp;
+        UIUpdate();
     }
     public void Damage(int damage)
     {
         hp -= damage;
-        healthSlider.value=hp;
+        UIUpdate();
 
         if (hp < 0)
         {
@@ -43,8 +42,7 @@ public class Health : MonoBehaviour
             hp = maxHp;
         }
         AudioManager.Instance.PlaySFX(health_sfx, 1);
-        healthSlider.value = hp;
-
+        UIUpdate();
     }
     private void KillPlayer()
     {
@@ -62,14 +60,11 @@ public class Health : MonoBehaviour
         playerDeath.Invoke(isPlayer);
     }
 
-    private void Update()
+    private void UIUpdate()
     {
-        healthSlider.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
+        print(gameObject.name + " hp: " + hp);
+        print(gameObject.name + " maxhp: " + maxHp);
+        print(gameObject.name + " fill: " + (float)hp / (float)maxHp);
+        healthUI.fillAmount = (float)hp / (float)maxHp;
     }
-
-    /*void OnDisable()
-    {
-        gameObject.SetActive(true);
-        transform.position = new Vector3(0,0,0);
-    }*/
 }

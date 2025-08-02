@@ -43,7 +43,7 @@ namespace DialogueSystem
 
                     yield return new WaitUntil(() => dialogueLine.finished);
 
-                    yield return new WaitUntil(() => Input.GetMouseButton(0));
+                    yield return new WaitUntil(() => Input.GetKey("space"));
 
                 }
 
@@ -61,7 +61,7 @@ namespace DialogueSystem
 
                 yield return new WaitUntil(() => dialogueLine.finished);
 
-                yield return new WaitUntil(() => Input.GetMouseButton(0));
+                yield return new WaitUntil(() => Input.GetKey("Space"));
 
 
 

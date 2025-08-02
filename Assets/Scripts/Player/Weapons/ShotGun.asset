@@ -18,6 +18,9 @@ MonoBehaviour:
   spreadDeegres: 4
   recoilForce: 1
   bulletPrefab: {fileID: 3991459269449835618, guid: 232378ea131284a47bd91f0a9b0e7db9, type: 3}
+  bulletSprite: {fileID: 0}
+  weaponSprite: {fileID: 0}
+  bulletSound: {fileID: 8300000, guid: b980b7a36a53fd64c8d4834ca0350f6a, type: 3}
   bulletSpeed: 60
   bulletDamage: 30
   lifeSpan: 2
