@@ -98,6 +98,8 @@ public class GameManager : MonoBehaviour
 
         boss.transform.DOMove(enemySpawnPoint.position, 0.5f);
         boss.GetComponent<Health>().Heal(100);
+        boss.GetComponent<Health>().hp = 100;
+        boss.GetComponent<Health>().UIUpdate();
         boss.SetActive(true);
     }
 
