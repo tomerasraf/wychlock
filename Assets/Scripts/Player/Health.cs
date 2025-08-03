@@ -8,7 +8,7 @@ using DG.Tweening;
 
 public class Health : MonoBehaviour
 {
-    public int hp {get; private set;}
+    public int hp;
     [SerializeField] int maxHp;
     public static Action<bool> playerDeath;
     public Image healthUI;
@@ -27,6 +27,8 @@ public class Health : MonoBehaviour
     {
         hp -= damage;
         UIUpdate();
+        transform.DOPunchPosition(Vector3.one, 0.5f, 7);
+        
 
         if (hp < 0)
         {
@@ -60,7 +62,7 @@ public class Health : MonoBehaviour
         playerDeath.Invoke(isPlayer);
     }
 
-    private void UIUpdate()
+    public void UIUpdate()
     {
         healthUI.fillAmount = (float)hp / (float)maxHp;
     }

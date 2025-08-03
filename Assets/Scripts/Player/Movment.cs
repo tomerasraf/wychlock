@@ -57,9 +57,4 @@ public class Movment : MonoBehaviour
         return rotationDir;
     }
 
-    private static void PlayerMousePos()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0f;
-    }
 }

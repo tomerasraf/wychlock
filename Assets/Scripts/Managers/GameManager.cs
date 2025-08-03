@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     {
         //dialogueManager.PlayNextDialogue();
         player.GetComponent<Health>().Heal(100);
+        player.GetComponent<Health>().hp = 100;
+        player.GetComponent<Health>().UIUpdate();
         boss.GetComponent<InputReciver>().isPlaying = false;
         player.GetComponent<PlayerInput>().enabled = false;
         player.GetComponent<Collider2D>().enabled = false;
@@ -93,7 +95,8 @@ public class GameManager : MonoBehaviour
         {
             
         }
-        boss.transform.position = enemySpawnPoint.position;
+
+        boss.transform.DOMove(enemySpawnPoint.position, 0.5f);
         boss.GetComponent<Health>().Heal(100);
         boss.SetActive(true);
     }

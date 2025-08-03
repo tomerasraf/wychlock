@@ -81,6 +81,7 @@ public class PlayerInput : MonoBehaviour
         this.enabled = false;
         GetComponent<Collider2D>().enabled = false;
         enemyReciver.GetComponent<Collider2D>().enabled = false;
+        enemyReciver.isResetting = true;
 
         enemyReciver.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f).OnComplete(() =>
         {

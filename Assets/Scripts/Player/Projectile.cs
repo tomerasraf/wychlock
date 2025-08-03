@@ -15,13 +15,16 @@ public class Projectile : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private float lifeTimer = 0;
+    
+    private GameObject shooter;
 
-    public void Init(float speed, Vector2 direction, int damage, float lifeTime)
+    public void Init(float speed, Vector2 direction, int damage, float lifeTime, GameObject shooter)
     {
         this.speed = speed;
         this.direction = direction;
         this.damage = damage;
         this.lifeTime = lifeTime;
+        this.shooter = shooter;
 
         UpdateRotation();
 
@@ -68,6 +71,10 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
+        if (other.gameObject == shooter)
+            return;
+        
         Health health = other.GetComponent<Health>();
                 
         if (health != null)

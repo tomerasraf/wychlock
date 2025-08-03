@@ -20,6 +20,8 @@ public class Weapon : MonoBehaviour
 
     public SpriteRenderer weaponSprite;
 
+
+
     public bool canShoot = true;
     private void Start()
     {
@@ -40,7 +42,12 @@ public class Weapon : MonoBehaviour
             GameObject bulletObj = Instantiate(weaponType.bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
             Projectile bullet = bulletObj.GetComponent<Projectile>();
             Vector2 direction = RandomSpreadOffset(barrelDirection);
-            bullet.Init(weaponType.bulletSpeed, direction, weaponType.bulletDamage, weaponType.lifeSpan);
+            bullet.Init(weaponType.bulletSpeed, direction, weaponType.bulletDamage, weaponType.lifeSpan, this.gameObject);
+        }
+        
+        if (this.gameObject.CompareTag("Enemy"))
+        {
+            
         }
 
         //Vector3 recoilDirection = Quaternion.Euler(0, 0, 180) * direction;
